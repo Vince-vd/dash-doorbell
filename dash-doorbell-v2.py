@@ -19,10 +19,10 @@ BASEMENT_DOOR_MAC = 'b4:7c:9c:92:3f:c9' # MAC address of back door dash doorbell
 
 try:
     def ring_door(door):
-        # set front door to high
+        # set door to high
         wiringpi.digitalWrite(door,1) 
         time.sleep(1) #wait 1 second
-        # set front door to low again, bell should be ringing
+        # set door to low again, bell should be ringing
         wiringpi.digitalWrite(door,0) 
            
     
@@ -39,6 +39,6 @@ try:
 
 except KeyboardInterrupt:
     #cleanup GPIO settings before exiting, make sure relays are low
-    wiringpi.digitalWrite(front,0) # set pin 3 to low on exit
-    wiringpi.digitalWrite(basement, 0)
+    wiringpi.digitalWrite(front,0) # set front to low on exit
+    wiringpi.digitalWrite(basement, 0) # set basement to low on exit
     print("Exiting...")
